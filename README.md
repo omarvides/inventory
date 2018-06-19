@@ -14,5 +14,5 @@ This is an inventory microservice excercise
 
 ## Resources URLs
 
-/items
-/items/{id}
+* /items
+* /items/{id}
