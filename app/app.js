@@ -1,5 +1,7 @@
+require('dotenv').config();
 const express = require('express');
 const winston = require('winston');
+const itemController = require('../controllers/item');
 
 const app = express();
 const logger = winston.createLogger({
