@@ -6,11 +6,10 @@ This is an inventory microservice excercise
 
 ## Item
 
+* Name
 * Price
 * Stock
 * Weigth
-* Dimensions
-
 
 ## Resources URLs
 
