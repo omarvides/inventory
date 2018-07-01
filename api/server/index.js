@@ -1,11 +1,13 @@
 require('dotenv').config();
 const express = require('express');
 const logger = require('./logger');
+const itemModel = require('../models/mongo/item');
 const itemController = require('../controllers/itemController');
 const itemRoutes = require('../routes/itemRoutes');
 
+const controllers = itemController.configure(itemModel);
 const app = express();
-itemRoutes(app, itemController);
+itemRoutes(app, controllers);
 app.set('port', process.env.PORT || 3000);
 
 

@@ -3,10 +3,11 @@
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "mongoose": "^5.1.6",
+    "nodemon": "^1.17.5",
     "winston": "^3.0.0"
   },
   "scripts": {
-    "start": "node ./api/server/index.js",
+    "start": "nodemon ./api/server/index.js",
     "test": "node_modules/mocha/bin/mocha --exit --recursive ./api/tests"
   },
   "devDependencies": {

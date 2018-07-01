@@ -1,8 +1,8 @@
 const logger = require('../server/logger');
 
-function configure(app, controller) {
+function configure(app, controllers) {
   app.get('/create', (req, res) => {
-    controller.createItem((err) => {
+    controllers.createItem((err) => {
       if (err) {
         res.statusCode = 500;
         return res.send(`An error ocurred while creating the item ${err}`);
@@ -12,7 +12,7 @@ function configure(app, controller) {
   });
 
   app.get('/list', (req, res) => {
-    controller.getItems((err, items) => {
+    controllers.getItems((err, items) => {
       logger.error(err);
       if (err) {
         res.statusCode = 500;
