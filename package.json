@@ -6,13 +6,17 @@
     "winston": "^3.0.0"
   },
   "scripts": {
-    "start": "node ./api/server/index.js"
+    "start": "node ./api/server/index.js",
+    "test": "node_modules/mocha/bin/mocha --exit --recursive ./api/tests"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.4.0"
-  }
+    "eslint-plugin-react": "^7.4.0",
+    "mocha": "^5.2.0"
+  },
+  "license": "MIT"
 }
