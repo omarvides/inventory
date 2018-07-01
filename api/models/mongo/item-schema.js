@@ -7,4 +7,4 @@ const itemSchema = mongoose.Schema({
   weight: { type: Number, required: false },
 });
 
-module.exports = mongoose.model('Item', itemSchema);
+module.exports = itemSchema;

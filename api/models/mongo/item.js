@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
-const ItemModel = require('./item-model');
+const ItemSchema = require('./item-schema');
 
+const ItemModel = mongoose.model('Item', ItemSchema);
 const host = process.env.DB_HOST;
 const user = process.env.DB_USER;
 const password = process.env.DB_PASSWORD;
