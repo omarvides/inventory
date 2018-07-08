@@ -2,29 +2,29 @@ const mongoose = require('mongoose');
 const ItemSchema = require('./item-schema');
 
 const ItemModel = mongoose.model('Item', ItemSchema);
-const host = process.env.DB_HOST;
-const user = process.env.DB_USER;
-const password = process.env.DB_PASSWORD;
-const port = process.env.DB_PORT;
-const connectionString = `mongodb://${user}:${password}@${host}:${port}`;
+const connectionString = `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}`;
 
 function createItem(properties, callback) {
   mongoose.connect(connectionString).then(
     () => {
       const newItem = new ItemModel({
-        name: 'Chromecast',
+        name: 'Ipad',
         price: 35,
         stock: 100,
         weight: 1,
       });
-      newItem.save((err) => {
-        if (err) {
+      newItem.save().then(
+        (docs) => {
+          mongoose.connection.close();
+          return callback(null, docs);
+        },
+        (err) => {
+          mongoose.connection.close();
           return callback(err);
-        }
-        return callback();
-      });
+        },
+      );
     },
-    (err) => { callback(`MongoDB connection error: ${err}`); },
+    err => callback(`MongoDB connection error: ${err}`),
   );
 }
 
