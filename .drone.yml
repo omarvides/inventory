@@ -1,0 +1,11 @@
+pipeline:
+  docker:
+    image: docker
+    commands:
+      - echo $WEBHOOK
+      - echo $SLACK_HOOK
+    secrets: [ webhook, slack_hook ]
+  slack:
+    image: plugins/slack
+    channel: builds
+    secrets: [ slack_webhook ]
