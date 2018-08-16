@@ -1,10 +1,9 @@
 pipeline:
-  docker:
-    image: docker
+  backend:
+    image: node:8
     commands:
-      - echo $WEBHOOK
-      - echo $SLACK_HOOK
-    secrets: [ webhook, slack_hook ]
+      - npm install
+      - npm test
   slack:
     image: plugins/slack
     channel: builds
