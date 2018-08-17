@@ -4,7 +4,6 @@ pipeline:
     commands:
       - npm install
       - npm test
-      - exit 1
   slack:
     image: plugins/slack
     channel: builds
